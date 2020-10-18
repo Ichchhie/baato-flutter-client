@@ -1,11 +1,10 @@
 import 'package:baato_flutter_client/models/search.dart';
-import 'package:meta/meta.dart';
 import 'package:dio/dio.dart';
-import 'dart:convert';
+import 'package:meta/meta.dart';
+
 import 'exceptions.dart';
 
 class BaatoSearch {
-
   String accessToken, query;
   String type;
   String apiVersion = "1";

@@ -2,7 +2,7 @@ class Place {
   final String license;
   final Object score;
   final String address;
-  final LatLon centroid;
+  final GeoCoord centroid;
   final int placeId;
   final String name;
   final Geometry geometry;
@@ -23,9 +23,14 @@ class Place {
         json['score'] as Object,
         json['type'] as String,
         json['license'] as String,
-        LatLon.fromJson(json['centroid']),
+        GeoCoord.fromJson(json['centroid']),
         Geometry.fromJson(json['geometry']),
         _tags);
+  }
+
+  @override
+  String toString() {
+    return 'Place{license: $license, score: $score, address: $address, centroid: $centroid, placeId: $placeId, name: $name, geometry: $geometry, type: $type, tags: $tags}';
   }
 }
 
@@ -50,6 +55,11 @@ class PlaceResponse {
       _placeResults,
     );
   }
+
+  @override
+  String toString() {
+    return 'PlaceResponse{timestamp: $timestamp, status: $status, message: $message, data: $data}';
+  }
 }
 
 class Geometry {
@@ -61,14 +71,24 @@ class Geometry {
   factory Geometry.fromJson(dynamic json) {
     return Geometry(json['type'] as String, json['coordinates'] as Object);
   }
+
+  @override
+  String toString() {
+    return 'Geometry{type: $type, coordinates: $coordinates}';
+  }
 }
 
-class LatLon {
+class GeoCoord {
   final double lat, lon;
 
-  LatLon(this.lat, this.lon);
+  GeoCoord(this.lat, this.lon);
 
-  factory LatLon.fromJson(dynamic json) {
-    return LatLon(json['lat'] as double, json['lon'] as double);
+  factory GeoCoord.fromJson(dynamic json) {
+    return GeoCoord(json['lat'] as double, json['lon'] as double);
+  }
+
+  @override
+  String toString() {
+    return 'GeoCoord{lat: $lat, lon: $lon}';
   }
 }

@@ -5,14 +5,14 @@ import 'package:baato_flutter_client/src/baato_reverse.dart';
 import 'package:baato_flutter_client/src/baato_search.dart';
 
 void main() async {
-  String baatoAccessToken = "your-access-token";
+  String baatoAccessToken="baato-access-token";
   BaatoSearch baatoSearch = BaatoSearch.initialize(
     query: 'naxal',
     accessToken: baatoAccessToken,
   );
 
   BaatoReverse baatoReverse = BaatoReverse.initialize(
-    latLon: LatLon(27.7146921370009, 85.32051086425783),
+    latLon: GeoCoord(27.7146921370009, 85.32051086425783),
     accessToken: baatoAccessToken,
   );
 
@@ -22,11 +22,11 @@ void main() async {
   );
 
   SearchResponse response = await baatoSearch.searchQuery();
-  for (Search search in response.data) print(search.name + search.type);
+  print(response);
 
   PlaceResponse reverse = await baatoReverse.reverseGeocode();
-  print(reverse.data.length);
+  print(reverse);
 
   PlaceResponse placeResponse = await baatoPlace.getPlaceDetails();
-  print(placeResponse.data.length);
+  print(placeResponse);
 }

@@ -1,9 +1,6 @@
 library baato_flutter_client;
-
-/// A Calculator.
-class Calculator {
-
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-
-}
+export 'src/exceptions.dart';
+export 'src/baato_search.dart';
+export 'src/baato_reverse.dart';
+export 'src/baato_place.dart';
+export 'src/models.dart';

@@ -10,6 +10,11 @@ class Search {
   factory Search.fromJson(dynamic json) {
     return Search(json['placeId'] as int, json['name'] as String,json['address'] as String, json['score'] as double,json['type'] as String);
   }
+
+  @override
+  String toString() {
+    return 'Search{placeId: $placeId, name: $name, address: $address, score: $score, type: $type}';
+  }
 }
 
 class SearchResponse {
@@ -30,5 +35,10 @@ class SearchResponse {
       json['message'] as String,
       _searchResults,
     );
+  }
+
+  @override
+  String toString() {
+    return 'SearchResponse{timestamp: $timestamp, status: $status, message: $message, data: $data}';
   }
 }

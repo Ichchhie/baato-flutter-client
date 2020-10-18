@@ -10,7 +10,7 @@ class BaatoReverse {
   String apiVersion = "1";
   String apiBaseUrl = "https://api.baato.io/api/v1/reverse";
   int radius;
-  LatLon latLon;
+  GeoCoord latLon;
 
   Dio _client;
 
